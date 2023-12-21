@@ -1,0 +1,28 @@
+.campo {
+    width: 10vh;
+    height: 10vh;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #FFF;
+    padding: 10px;
+    margin: 1vh;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.campo:hover {
+    background-color: rgb(173, 173, 173);
+}
+
+.tabuleiro {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    margin: 20vh auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    box-sizing: border-box;   
+}
