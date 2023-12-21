@@ -9,7 +9,7 @@ const Tabuleiro = () => {
 
     function handleClick(i) {
         const nextCampo = campos.slice();
-        if(campos[i]!=null) {
+        if(campos[i]!=null || calculaVencedor(campos)) {
             return;
         }
 
@@ -20,6 +20,14 @@ const Tabuleiro = () => {
         }
         setCampos(nextCampo);
         setJogadorAtual(!jogadorAtual);
+    }
+
+    const vencedor = calculaVencedor(campos);
+    let resultado;
+    if(vencedor) {
+        resultado = "Vencedor: " + vencedor;
+    } else {
+        resultado = "Jogador Atual: " + (jogadorAtual ? "X" : "O");
     }
 
     return (
@@ -39,8 +47,33 @@ const Tabuleiro = () => {
                 <Campo jogador={campos[7]} onCampoClick={() => handleClick(7)}/>
                 <Campo jogador={campos[8]} onCampoClick={() => handleClick(8)}/>
             </div>
+
+            <div className="resultado">
+                {resultado}
+            </div>
         </div>
     )
+}
+
+function calculaVencedor(campos) {
+    const linhas = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8]
+    ]
+
+    for(let i = 0; i < linhas.length; i++) {
+        const [a, b, c] = linhas[i];
+        if(campos[a] && campos[a] === campos[b] && campos[a] === campos[c]) {
+            return campos[a];
+        }
+    }
+    return null;
 }
 
 export default Tabuleiro
