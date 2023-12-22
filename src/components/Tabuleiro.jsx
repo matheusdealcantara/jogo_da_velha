@@ -1,11 +1,13 @@
 import './Estilo.modules.css'
 import { useState } from 'react';
 import Campo from './Campo'
+import Button from './Button';
 
 
 const Tabuleiro = () => {
     const [campos, setCampos] = useState(Array(9).fill(null));
     const [jogadorAtual, setJogadorAtual] = useState(true);
+    const [placar, setPlacar] = useState([0,0]);
 
     function handleClick(i) {
         const nextCampo = campos.slice();
@@ -22,7 +24,26 @@ const Tabuleiro = () => {
         setJogadorAtual(!jogadorAtual);
     }
 
+    
+
+    function reiniciaJogo() {
+        setCampos(Array(9).fill(null));
+        setJogadorAtual(true);
+    }
+
+    function reiniciaPlacar() {
+        setCampos(Array(9).fill(null));
+        setJogadorAtual(true);
+        setPlacar([0,0]);
+    }
+
     const vencedor = calculaVencedor(campos)
+
+    if(vencedor === "X") {
+        placar[0]++;
+    } else if(vencedor === "O") {
+        placar[1]++;
+    }
 
     let resultado;
     if(vencedor) {
@@ -35,6 +56,16 @@ const Tabuleiro = () => {
 
     return (
         <div className="tabuleiro">
+
+            <div className="placar">
+                <h1>Placar</h1>
+                <h2>X: {placar[0]}</h2>
+                <h2>O: {placar[1]}</h2>
+                <div className="reinicia" onClick={reiniciaPlacar}>
+                    <Button texto="Reiniciar Placar"/>
+                </div>    
+            </div>
+
             <div className="linha">
                 <Campo jogador={campos[0]} onCampoClick={() => handleClick(0)}/>
                 <Campo jogador={campos[1]} onCampoClick={() => handleClick(1)}/>
@@ -53,6 +84,10 @@ const Tabuleiro = () => {
 
             <div className="resultado">
                 {resultado}
+            </div>
+
+            <div className="reinicia" onClick={reiniciaJogo}>
+                <Button  texto="Reiniciar Jogo"/>
             </div>
         </div>
     )
@@ -85,7 +120,7 @@ function calculaVencedor(campos) {
             return campos[a];
         }
     }
-    
+
     return null;
 }
 
