@@ -39,14 +39,13 @@ const Tabuleiro = () => {
 
     const vencedor = calculaVencedor(campos)
 
-    if(vencedor === "X") {
-        placar[0]++;
-    } else if(vencedor === "O") {
-        placar[1]++;
-    }
-
     let resultado;
     if(vencedor) {
+        if(vencedor === "X") {
+            placar[0]++;
+        } else if(vencedor === "O") {
+            placar[1]++;
+        }
         resultado = "Vencedor: " + vencedor + "!";
     } else if(!empate(campos)){
         resultado = "Jogador Atual: " + (jogadorAtual ? "X" : "O");
@@ -55,13 +54,14 @@ const Tabuleiro = () => {
     }
 
     return (
-        <div className="tabuleiro">
-
+        <div className="tabuleiro" onLoad={reiniciaPlacar}>
             <div className="placar">
-                <h1>Placar</h1>
-                <h2>X: {placar[0]}</h2>
-                <h2>O: {placar[1]}</h2>
-                <div className="reinicia" onClick={reiniciaPlacar}>
+                <div className="placar_texto">
+                    <h1>Placar</h1>
+                    <h2>Pontuação X: {placar[0]}</h2>
+                    <h2>Pontuação O: {placar[1]}</h2>
+                </div>
+                <div className="reinicia_placar" onClick={reiniciaPlacar}>
                     <Button texto="Reiniciar Placar"/>
                 </div>    
             </div>
@@ -86,7 +86,7 @@ const Tabuleiro = () => {
                 {resultado}
             </div>
 
-            <div className="reinicia" onClick={reiniciaJogo}>
+            <div className="reinicia_jogo" onClick={reiniciaJogo}>
                 <Button  texto="Reiniciar Jogo"/>
             </div>
         </div>
@@ -98,8 +98,8 @@ function empate(campos){
         if(campos[i] == null){
             return false;
         }
-        return true;
     }
+    return true;
 }
 
 function calculaVencedor(campos) {
