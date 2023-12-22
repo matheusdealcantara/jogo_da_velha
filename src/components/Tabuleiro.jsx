@@ -2,7 +2,7 @@ import './Estilo.modules.css'
 import { useState } from 'react';
 import Campo from './Campo'
 import Button from './Button';
-
+import { Link } from 'react-router-dom';
 
 const Tabuleiro = () => {
     const [campos, setCampos] = useState(Array(9).fill(null));
@@ -58,8 +58,8 @@ const Tabuleiro = () => {
             <div className="placar">
                 <div className="placar_texto">
                     <h1>Placar</h1>
-                    <h2>Pontuação X: {placar[0]}</h2>
-                    <h2>Pontuação O: {placar[1]}</h2>
+                    <h2>Pontuação X: {placar[0]/2}</h2>
+                    <h2>Pontuação O: {placar[1]/2}</h2>
                 </div>
                 <div className="reinicia_placar" onClick={reiniciaPlacar}>
                     <Button texto="Reiniciar Placar"/>
@@ -89,6 +89,9 @@ const Tabuleiro = () => {
             <div className="reinicia_jogo" onClick={reiniciaJogo}>
                 <Button  texto="Reiniciar Jogo"/>
             </div>
+            <Link to="/">
+                <Button texto="Voltar"/>
+            </Link>
         </div>
     )
 }
