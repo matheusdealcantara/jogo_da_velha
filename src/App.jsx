@@ -1,5 +1,4 @@
 import React from "react";
-
 // Importando as rotas
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 

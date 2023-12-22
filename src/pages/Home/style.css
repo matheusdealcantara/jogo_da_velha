@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'pixel';
+    src: url('../../assets/Font/alagard.ttf') format("truetype");
+}
+
+:root{
+    --color1: #47425e;
+    --color2: #13788c;
+    --color3: #18b4bb;
+    --color4: #ffeecd;
+    --color5: #f6aea3;
+    --color6: #ed6874;
+}
+
+body{
+    background-color: var(--color1);
+}
+
+hr{
+    color: var(--color4);
+    border: 0.2cap solid var(--color4);
+    margin: 6cap 14cap 6cap 14cap;
+}
+
+.Titulo{
+    display: flex;
+    color: var(--color4);
+    font-size: 2em;
+    justify-content: center;
+    align-items: center;
+}
+
+.Titulo h1{
+    font-weight: 100;
+    margin: -0.8cap 0.5cap -0.9cap 0.5cap;
+}
+
+.Titulo .O{
+    color: var(--color3);
+    font-size: 5cap;
+
+}
+
+.Titulo .X{
+    color: var(--color6);
+    font-size: 5cap;
+  
+}
+
+.Pato{
+    display: flex;
+    height: 15cap;
+    width: auto;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 15cap;
+}
+
+.button{
+    font-size: 3cap;
+    background: none;
+    border: 0;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--color4);
+    font-family: 'pixel';
+}
+
+.Boxbutton{
+    margin-right: 6cap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button img{
+    margin-top: 1.5cap;
+    height: 2em;
+    margin-right: 2cap;
+    width: auto;
+    justify-self: left;
+    opacity: 0;
+}
+.button :hover img{
+    opacity: 1;
+}
+
+.button :link{
+    text-decoration: none;
+    margin-top: 2cap;
+}
+
+

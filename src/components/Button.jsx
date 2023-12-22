@@ -2,7 +2,8 @@ import './Estilo.modules.css'
 
 const Button = (props) => {
   return (
-    <button className="button">{props.texto}</button>
+    // eslint-disable-next-line react/prop-types
+    <button className="button" >{props.texto}</button>
   )
 }
 

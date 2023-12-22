@@ -1,7 +1,4 @@
-div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
+@font-face {
+    font-family: 'pixel';
+    src: url('./src/assets/Font/alagard.ttf') format("truetype");
 }
