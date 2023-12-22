@@ -22,12 +22,15 @@ const Tabuleiro = () => {
         setJogadorAtual(!jogadorAtual);
     }
 
-    const vencedor = calculaVencedor(campos);
+    const vencedor = calculaVencedor(campos)
+
     let resultado;
     if(vencedor) {
-        resultado = "Vencedor: " + vencedor;
-    } else {
+        resultado = "Vencedor: " + vencedor + "!";
+    } else if(!empate(campos)){
         resultado = "Jogador Atual: " + (jogadorAtual ? "X" : "O");
+    } else {
+        resultado = "Empate!";
     }
 
     return (
@@ -55,6 +58,15 @@ const Tabuleiro = () => {
     )
 }
 
+function empate(campos){
+    for(let i = 0; i < campos.length; i++){
+        if(campos[i] == null){
+            return false;
+        }
+        return true;
+    }
+}
+
 function calculaVencedor(campos) {
     const linhas = [
         [0, 1, 2],
@@ -66,14 +78,16 @@ function calculaVencedor(campos) {
         [1, 4, 7],
         [2, 5, 8]
     ]
-
+    
     for(let i = 0; i < linhas.length; i++) {
         const [a, b, c] = linhas[i];
         if(campos[a] && campos[a] === campos[b] && campos[a] === campos[c]) {
             return campos[a];
         }
     }
+    
     return null;
 }
+
 
 export default Tabuleiro
