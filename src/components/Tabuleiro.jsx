@@ -48,51 +48,63 @@ const Tabuleiro = () => {
         }
         resultado = "Vencedor: " + vencedor + "!";
     } else if(!empate(campos)){
-        resultado = "Jogador Atual: " + (jogadorAtual ? "X" : "O");
+        resultado = "Pato Time: " + (jogadorAtual ? "X" : "O");
     } else {
         resultado = "Empate!";
     }
 
-    return (
-        <div className="tabuleiro" onLoad={reiniciaPlacar}>
-            <div className="placar">
-                <div className="placar_texto">
-                    <h1>Placar</h1>
-                    <h2>Pontuação X: {placar[0]/2}</h2>
-                    <h2>Pontuação O: {placar[1]/2}</h2>
+     // Visualização Página
+     return (
+        <>
+            <div className='TabuleiroObjetos'>
+
+                <div style={{fontFamily:'pixel'}} className='TabuleiroPontos'>
+
+                    <h1 className='X'>X <br /> {placar[0]/2}</h1>
+
+                    {/* Tabuleiro Do Jogo  */}
+                    <div  className="Tabuleiro" onLoad=
+                    {reiniciaPlacar}>
+                        <div className="linha">
+                            <Campo jogador={campos[0]} onCampoClick={() => handleClick(0)}/>
+                            <Campo jogador={campos[1]} onCampoClick={() => handleClick(1)}/>
+                            <Campo jogador={campos[2]} onCampoClick={() => handleClick(2)}/>
+                        </div>
+                        <div className="linha">
+                            <Campo jogador={campos[3]} onCampoClick={() => handleClick(3)}/>
+                            <Campo jogador={campos[4]} onCampoClick={() => handleClick(4)}/>
+                            <Campo jogador={campos[5]} onCampoClick={() => handleClick(5)}/>
+                        </div>
+                        <div className="linha">
+                            <Campo jogador={campos[6]} onCampoClick={() => handleClick(6)}/>
+                            <Campo jogador={campos[7]} onCampoClick={() => handleClick(7)}/>
+                            <Campo jogador={campos[8]} onCampoClick={() => handleClick(8)}/>
+                        </div>
+                    </div>
+
+                    <h1 className='O'>O<br /> {placar[1]/2}</h1>
+
                 </div>
-                <div className="reinicia_placar" onClick={reiniciaPlacar}>
-                    <Button texto="Reiniciar Placar"/>
-                </div>    
-            </div>
 
-            <div className="linha">
-                <Campo jogador={campos[0]} onCampoClick={() => handleClick(0)}/>
-                <Campo jogador={campos[1]} onCampoClick={() => handleClick(1)}/>
-                <Campo jogador={campos[2]} onCampoClick={() => handleClick(2)}/>
-            </div>
-            <div className="linha">
-                <Campo jogador={campos[3]} onCampoClick={() => handleClick(3)}/>
-                <Campo jogador={campos[4]} onCampoClick={() => handleClick(4)}/>
-                <Campo jogador={campos[5]} onCampoClick={() => handleClick(5)}/>
-            </div>
-            <div className="linha">
-                <Campo jogador={campos[6]} onCampoClick={() => handleClick(6)}/>
-                <Campo jogador={campos[7]} onCampoClick={() => handleClick(7)}/>
-                <Campo jogador={campos[8]} onCampoClick={() => handleClick(8)}/>
-            </div>
+                <div className='OpcoesJogo'>
+                    <div className="BoxOpcoes" onClick={reiniciaPlacar}>
+                            <Button texto="-Reiniciar Placar-"/>
+                    </div>
+                    <div className="BoxOpcoes" onClick={reiniciaJogo}>
+                            <Button  texto="-Resetar Tabuleiro-"/>
+                    </div>
+                    <div className="BoxOpcoes">
+                        <Link to="/">
+                                <Button texto="-Voltar-"/>
+                        </Link>
+                    </div>
+                </div>
 
-            <div className="resultado">
+                <div style={{fontFamily:'pixel'}} className="resultado">
                 {resultado}
+                </div>
             </div>
-
-            <div className="reinicia_jogo" onClick={reiniciaJogo}>
-                <Button  texto="Reiniciar Jogo"/>
-            </div>
-            <Link to="/">
-                <Button texto="Voltar"/>
-            </Link>
-        </div>
+        </>
     )
 }
 

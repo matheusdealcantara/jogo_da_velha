@@ -1,26 +1,103 @@
+@font-face {
+    font-family: 'pixel';
+    src: url('../../assets/Font/alagard.ttf') format("truetype");
+}
+/* Paleta de Cores */
+:root{
+    --color1: #47425e;
+    --color2: #13788c;
+    --color3: #18b4bb;
+    --color4: #ffeecd;
+    --color5: #f6aea3;
+    --color6: #ed6874;
+}
+
+/* Tabuleiro  */
+.TabuleiroObjetos{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.TabuleiroPontos{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.TabuleiroPontos h1{
+    font-size: 2em;
+    text-align: center;
+    margin: 4.5em ;
+}
+
+.TabuleiroPontos .X{
+    font-weight: 100;
+    color: var(--color6);
+}
+
+.TabuleiroPontos .O{
+    font-weight: 100;
+    color: var(--color3);
+}
+
+.Tabuleiro {
+    font-weight: 100;
+    place-items: ce;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items:center;
+    width: fit-content;
+    height: fit-content;
+    border: 0.5em solid var(--color4);
+    border-radius: 1em;
+    margin: 0em -0.2em 0em 0em;
+    /* box-sizing: border-box;    */
+}
+
+/* Campo/Celulas do Jogo */
 .campo {
-    width: 10vh;
-    height: 10vh;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #FFF;
+    width: 5cap;
+    height: 5cap;
+    border-radius: 1em;
+    border: 0.3em solid var(--color4);
+    background-color: var(--color1);
     /* padding: 10px; */
-    margin: 1vh;
-    box-sizing: border-box;
-    transition: 0.3s;
+    margin: 0.5cap;
+    box-sizing: grid;
+    transition: 0.5s;
+
+    /* Fonte  */
+    font-size: 3cap;
+}
+.campo{
+    color: var(--color4);
 }
 
 .campo:hover {
-    background-color: rgb(173, 173, 173);
+    background-color: var(--color5);
 }
 
-.tabuleiro {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+/* Opções de Jogo */
+.OpcoesJogo{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    width: fit-content;
-    height: fit-content;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    /* box-sizing: border-box;    */
+    margin: 4em 0em 2em -3em;
+}
+.OpcoesJogo :link{
+    text-decoration: none;
+}
+
+.BoxOpcoes{
+    margin-left: 2cap;
+    margin-right: 3cap;
+}
+
+.resultado{
+    color: var(--color4);
+    font-size: 3cap;
 }
