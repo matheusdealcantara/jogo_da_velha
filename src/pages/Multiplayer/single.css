@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'pixel';
+    src: url('../../assets/Font/alagard.ttf') format("truetype");
+}
+
+:root{
+    --color1: #47425e;
+    --color2: #13788c;
+    --color3: #18b4bb;
+    --color4: #ffeecd;
+    --color5: #f6aea3;
+    --color6: #ed6874;
+}
+
+.Objetos{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 2cap 0cap 0cap 0cap;
+
+    font-weight: 100;
+}
+.Objetos h1{
+    font-size: 4cap;
+    margin: 4cap 11cap -5cap 11cap;
+    font-weight: 100;
+}
+.P1{
+    color: var(--color6);
+    font-size: 3.5cap;
+    margin: 4cap 15cap -80cap 12cap;
+    font-weight: 100;
+}
+.P2{
+    color: var(--color3);
+    font-size: 3.5cap;
+    margin: 4cap 15cap -80cap 12cap;
+    font-weight: 100;
+}
