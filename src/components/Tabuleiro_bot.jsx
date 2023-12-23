@@ -20,19 +20,21 @@ const Tabuleiro = () => {
         setCampos(nextCampo);
         
         // Jogadas do bot
-        let rand = Math.floor(Math.random() * 9);
-        let cont = 1;
-        while(nextCampo[rand] != null && cont < 9){
-            rand = Math.floor(Math.random() * 9);
-            cont++;
-        }
-        if(nextCampo[rand] != null){
-            return;
-        }
-        nextCampo[rand] = "O";
-    
-        setCampos(nextCampo);
-        setJogadorAtual(!jogadorAtual);
+        setTimeout(function(){
+            let rand = Math.floor(Math.random() * 9);
+            let cont = 1;
+            while(nextCampo[rand] != null && cont < 9){
+                rand = Math.floor(Math.random() * 9);
+                cont++;
+            }
+            if(nextCampo[rand] != null){
+                return;
+            }
+            nextCampo[rand] = "O";
+        
+            setCampos(nextCampo);
+            setJogadorAtual(!jogadorAtual);
+        }, 1000);
     }
 
     
