@@ -9,6 +9,7 @@ const Tabuleiro = () => {
     const [jogadorAtual, setJogadorAtual] = useState(true);
     const [placar, setPlacar] = useState([0,0]);
 
+    // Função das Jogadas
     function handleClick(i) {
         const nextCampo = campos.slice();
         if(campos[i]!=null || calculaVencedor(campos)) {
@@ -18,6 +19,7 @@ const Tabuleiro = () => {
         nextCampo[i] = "X"; 
         setCampos(nextCampo);
         
+        // Jogadas do bot
         let rand = Math.floor(Math.random() * 9);
         let cont = 1;
         while(nextCampo[rand] != null && cont < 9){
@@ -34,7 +36,7 @@ const Tabuleiro = () => {
     }
 
     
-
+    // Funções de Reiniciar
     function reiniciaJogo() {
         setCampos(Array(9).fill(null));
         setJogadorAtual(true);
@@ -46,6 +48,7 @@ const Tabuleiro = () => {
         setPlacar([0,0]);
     }
 
+    // Define o vencedor
     const vencedor = calculaVencedor(campos);
 
     let resultado;
@@ -62,7 +65,7 @@ const Tabuleiro = () => {
         resultado = "Empate!";
     }
 
-    // Visualização Página
+    // Visualização da Página
     return (
         <>
             <div className='TabuleiroObjetos'>
@@ -117,7 +120,7 @@ const Tabuleiro = () => {
     )
 }
 
-
+// Função para calcular o empate
 function empate(campos){
     for(let i = 0; i < campos.length; i++){
         if(campos[i] == null){
@@ -127,6 +130,7 @@ function empate(campos){
     return true;
 }
 
+// Função para calcular o vencedor
 function calculaVencedor(campos) {
     const linhas = [
         [0, 1, 2],

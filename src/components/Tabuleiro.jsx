@@ -9,6 +9,7 @@ const Tabuleiro = () => {
     const [jogadorAtual, setJogadorAtual] = useState(true);
     const [placar, setPlacar] = useState([0,0]);
 
+    // Função das Jogadas
     function handleClick(i) {
         const nextCampo = campos.slice();
         if(campos[i]!=null || calculaVencedor(campos)) {
@@ -37,6 +38,7 @@ const Tabuleiro = () => {
         setPlacar([0,0]);
     }
 
+    // Define o vencedor
     const vencedor = calculaVencedor(campos)
 
     let resultado;
@@ -53,7 +55,7 @@ const Tabuleiro = () => {
         resultado = "Empate!";
     }
 
-     // Visualização Página
+     // Visualização da Página
      return (
         <>
             <div className='TabuleiroObjetos'>
@@ -108,6 +110,7 @@ const Tabuleiro = () => {
     )
 }
 
+// Função para o empate
 function empate(campos){
     for(let i = 0; i < campos.length; i++){
         if(campos[i] == null){
@@ -117,6 +120,7 @@ function empate(campos){
     return true;
 }
 
+// Função para calcular o vencedor
 function calculaVencedor(campos) {
     const linhas = [
         [0, 1, 2],
