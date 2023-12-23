@@ -1,6 +1,6 @@
 import Button from "../../components/Button";
 import { useState } from "react";
-import Tabuleiro from "../../components/Tabuleiro";
+import Tabuleiro from "../../components/Tabuleiro_bot";
 
 // Arquivo Css da Página
 import './single.css'
